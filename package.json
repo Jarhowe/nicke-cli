@@ -1,0 +1,14 @@
+{
+  "name": "nicke-cli",
+  "version": "1.0.0",
+  "description": "这是一套基于vue框架快速生成web项目的脚手架",
+  "main": "index.js",
+  "bin": {
+    "nicke": "./bin/nicke.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jarhowe",
+  "license": "ISC"
+}
