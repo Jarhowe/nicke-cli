@@ -1,9 +1,8 @@
 const inquirer = require('inquirer');
-const promptConfig = require('./prompt.config');
 
-const inquirer_create = () => {
+const inquirer_create = (promptConfig) => {
     return new Promise(resolve => {
-        inquirer.prompt(promptConfig.getDefaultPrompt).then(res => {
+        inquirer.prompt(promptConfig).then(res => {
             resolve(res);
         });
     });

@@ -1,39 +1,14 @@
 #!/usr/bin/env node
 const program = require('commander');
-const chalkColor = require('../utils/chalk-log');
-const inquirer = require('../libs/inquirer.promise');
-const create = require('../src/create');
-const {green, blue, yellow, red} = chalkColor;
 
+program
+    // 定义当前版本
+    .version(require('../package').version)
+    // 定义使用的方法
+    .usage('<command> [options]')
+    // 编写自定义指令
+    .command('list', 'list all the template')   // 查看所有开发模板
+    .command('init', 'generate a new project from a template')  // 生成指定的模板
 
-program.version(require('../package').version);
-
-/* create a project */
-program.command('create')
-    .description('create a project')
-    .action(function() {
-        green('===== [欢迎使用nicke-cli, 轻松构建web项目工程] =====');
-        inquirer.inquirer_create().then(result => {
-            if (result.conf) {
-                create(result);
-            }
-        });
-    });
-
-
-/* start project */
-program.command('start')
-    .description('start a project')
-    .action(function() {
-        green('===== [正在为您启动项目，请稍后。。。] =====');
-    });
-
-
-/* build project */
-program.command('build')
-    .description('build a project')
-    .action(function() {
-        green('===== [正在为您打包项目，请稍后。。。] =====');
-    });
-
+// 解析命令行参数
 program.parse(process.argv);
