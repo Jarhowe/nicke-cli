@@ -30,13 +30,13 @@ const projectName = program.args[1];
 
 // 选中模板名称是否存在配置模板对象
 if (!templateObj[templateName]) {
-    chalkLog.red('\n Template does not exit! \n ');
+    console.log(logSymbols.error, chalkLog.red('Template does not exit! \n ', false));
     return;
 }
 
 // 项目名称为空 
 if (!projectName) {
-    chalkLog.red(`\n Project should not be empty! \n`);
+    console.log(logSymbols.error, chalkLog.red(`Project should not be empty! \n`, false));
     return;
 }
 
@@ -69,12 +69,12 @@ gitDownload(template_url, projectName, { clone: true } , error => {
     // 下载失败
     if (error) {
         spinner.fail();
-        chalkLog.red(`Generation failed. ${error}`);
+        console.error(logSymbols.error, chalkLog.red(`Generation failed. ${error}`));
         return;
     }
 
     spinner.succeed();
-    chalkLog.green('\n 🌟 Generation completed! ');
+    console.log(logSymbols.success, chalkLog.green(' 🌟 Generation completed! \n', false));
     console.log('\n 🌟 To get started');
     console.log(`\n cd ${projectName} \n`);
 
